@@ -1,23 +1,26 @@
-import logo from './logo.svg';
-import './App.css';
+import { useEffect, useState } from "react";
+import Header from "./components/Header";
+import Sidebar from "./components/Sidebar";
+import Content from "./components/Content";
+import info from "./data.json";
+import DataContext from "./context/data-context";
+
 
 function App() {
+  const [data, setData] = useState(info.data)
+  const [board, setBoard] = useState(0)
+  useEffect(() => {
+    // console.log(data)
+  }, [data])
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <DataContext.Provider value={{data: data, setData: setData, board: board, setBoard: setBoard}}>
+        <Header />
+        <div className="flex">
+          <Sidebar />
+          <Content />
+        </div>
+      </DataContext.Provider>
     </div>
   );
 }

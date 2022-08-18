@@ -1,0 +1,9 @@
+Board 1
+    Element
+        title
+        description
+        Todos
+            todo 1
+                title
+                checked
+                status

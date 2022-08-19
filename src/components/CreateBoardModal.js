@@ -8,22 +8,11 @@ const CreateBoardModal = ({closeModal}) => {
   let createBoard = () => {
     var newBoard = {
       board_title: inputData,
-      elements: [
-        {
-          title: "element test title",
-          description: "element",
-          todos: [
-            {
-              title: "todo test title",
-              checked: false,
-            }
-          ],
-          status: "todo"
-        }
-      ]
+      elements: []
     }
     setData([...data, newBoard])
     setInputData('')
+    setBoard(data.length)
     closeModal()
   }
 

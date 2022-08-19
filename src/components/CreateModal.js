@@ -8,17 +8,17 @@ const CreateModal = ({closeModal}) => {
     const {data, setData, board, setBoard} = useContext(DataContext)
     const currentBoard = data[board]
     let createTask = () => {
-        var newElement = {
+        let newElement = {
             description: descInput,
             status: "todo",
             title: titleInput,
             todos: []
         }
-        var test = data
-        var info = test[board].elements.push(newElement)
-        setData(test)
-        // console.log(test)
-        // console.log(...data[board].elements, newElement)
+        let addElem = data[board].elements.push(newElement)
+        let newData = [...data, addElem]
+        let arrayPop = newData.pop()
+        setData(newData)
+        closeModal()
     }
 
     return (

@@ -1,64 +1,14 @@
 {
     "data": [
         {
-            "board_title": "Board Title 1",
+            "board_title": "Test Board",
             "elements": [
                 {
                     "title": "Element title 1",
                     "description": "Element Description 1",
                     "todos": [
                         {
-                            "title": "Todo Title 1",
-                            "checked": true
-                        }
-                    ],
-                    "status": "todo"
-                },
-                {
-                    "title": "Element title 2 doing",
-                    "description": "Element Description 2",
-                    "todos": [
-                        {
-                            "title": "Todo Title 1 elem 2",
-                            "checked": true
-                        },
-                        {
-                            "title": "Todo Title 1 elem 2",
-                            "checked": true
-                        }
-                    ],
-                    "status": "doing"
-                },
-                {
-                    "title": "Element title 3",
-                    "description": "Element Description 2",
-                    "todos": [
-                        {
-                            "title": "Todo Title 1 elem 2",
-                            "checked": true
-                        },
-                        {
-                            "title": "Todo Title 1 elem 2",
-                            "checked": true
-                        }
-                    ],
-                    "status": "done"
-                }
-            ]
-        },
-        {
-            "board_title": "Board Title 2",
-            "elements": [
-                {
-                    "title": "Element title 1 b2",
-                    "description": "Element Description 1 b2",
-                    "todos": [
-                        {
-                            "title": "Todo Title 1 b2",
-                            "checked": true
-                        },
-                        {
-                            "title": "Todo Title 1 b2",
+                            "title": "Todo 1",
                             "checked": true
                         }
                     ],

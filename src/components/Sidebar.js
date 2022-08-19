@@ -5,7 +5,7 @@ import DataContext from "../context/data-context";
 
 const Sidebar = () => {
   const [boardModal, setBoardModal] = useState(false)
-  const {data, setData, board, setBoard} = useContext(DataContext);
+  const {data, setData, board, setBoard, burger, setBurger} = useContext(DataContext);
   let changeBoard = (id) => {
     setBoard(id)
   }
@@ -18,10 +18,10 @@ const Sidebar = () => {
   return (
     <Fragment>
       {boardModal ? <CreateBoardModal closeModal={closeModal}/> : null}
-      <div className="sidebar">
+      <div className="sidebar" style={burger ? {display:'block'} : {}}>
         <div className="sidebar__content">
           <div className="sidebar__content-boards">
-            <p className="sidebar__boards-title">All boards (4)</p>
+            <p className="sidebar__boards-title">All boards</p>
             <div className="sidebar__boards-row">
               {data.map((item, i) => (
                 <div key={i} className={`sidebar__board ${i == board ? "sidebar__board-active" : ""}`} onClick={() => {changeBoard(i)}}>
@@ -34,7 +34,7 @@ const Sidebar = () => {
                 <p className="sidebar__board-title">Create new board</p>
               </div>
               <div className="sidebar__board-new sidebar__board-close">
-                <FiX />
+                <FiX size={28} onClick={() => {setBurger(false)}}/>
               </div>
             </div>
           </div>

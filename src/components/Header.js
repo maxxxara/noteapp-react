@@ -7,7 +7,7 @@ import DataContext from "../context/data-context";
 const Header = () => {
 
     const [createModal, setCreateModal] = useState(false)
-    const {data, setData, board, setBoard} = useContext(DataContext)
+    const {data, setData, board, setBoard, burger, setBurger} = useContext(DataContext)
     const currentItem = data[board]
 
     let showCreateModal = () => {
@@ -18,12 +18,19 @@ const Header = () => {
         setCreateModal(false)
     }
 
+    let burgerClicked = () => {
+        if(burger) {setBurger(false)} else {setBurger(true)}
+    }
+
     return (
         <Fragment>
             {createModal ? <CreateModal closeModal={closeModal}/> : null}
             <header>
                 <div className="header__content">
                     <div className="flexCenter">
+                        <div class="header__content-sidebarButton">
+                            <FiMoreVertical onClick={burgerClicked}/>
+                        </div>
                         <div className="sidebar__content-logo">
                             <img src={logo} />
                         </div>
@@ -37,8 +44,6 @@ const Header = () => {
                         <button 
                             onClick={showCreateModal}
                         ><FiPlus /> <span>Create New Task</span></button>
-                        <FiMoreVertical size={20}/>
-
                     </div>
                 </div>
             </header>

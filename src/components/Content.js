@@ -6,44 +6,43 @@ import DataContext from "../context/data-context";
 const Content = () => {
   const [showPreviewModal, setShowPreviewModal] = useState(false)
   const {data, setData, board, setBoard} = useContext(DataContext)
+  const [modalItem, setModalItem] = useState({})
   const currentItem = data[board]
-  let showPreview = () => {
+  let showPreview = (id) => {
+    setModalItem(id)
     setShowPreviewModal(true)
   }
-  useEffect(() => {
-    console.log("changed")
-  }, [data])
-
   let closeModal = () => {
     setShowPreviewModal(false)
   }
   
+  
 
   return (
     <Fragment>
-      {showPreviewModal ? <PreviewModal closeModal={closeModal}/> : null}
+      {showPreviewModal ? <PreviewModal modalItem={modalItem} closeModal={closeModal}/> : null}
       <div className="content">
         <div className="content__row">
-          <p className="content__row-title"><span></span> TODOS (4)</p>
+          <p className="content__row-title"><span></span> TODOS</p>
           {currentItem.elements.map((item, i) => {
             if(item.status == "todo") {
-              return <Element key={i} showPreview={showPreview} item={item}/>
+              return <Element key={i} index={i} showPreview={showPreview} item={item} />
             }
           })}
         </div>
         <div className="content__row">
-          <p className="content__row-title"><span style={{background: "#8571F9"}}></span>DOING (4)</p>
+          <p className="content__row-title"><span style={{background: "#8571F9"}}></span>DOING</p>
           {currentItem.elements.map((item, i) => {
             if(item.status == "doing") {
-              return <Element key={i} showPreview={showPreview} item={item}/>
+              return <Element key={i} index={i} showPreview={showPreview} item={item}/>
             }
           })}
         </div>
         <div className="content__row">
-          <p className="content__row-title"><span style={{background: "#61E4AC"}}></span>DONE (4)</p>
+          <p className="content__row-title"><span style={{background: "#61E4AC"}}></span>DONE</p>
           {currentItem.elements.map((item, i) => {
             if(item.status == "done") {
-              return <Element key={i} showPreview={showPreview} item={item}/>
+              return <Element key={i} index={i} showPreview={showPreview} item={item}/>
             }
           })}
         </div>
